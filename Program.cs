@@ -1,0 +1,25 @@
+﻿Console.WriteLine("EJERCICIO_2");                                    //Numero de la practica
+Console.WriteLine("Determinar si el alumno aprueba o no");    //Nombre del ejercicio (Comprobar si un alumno aprueba o no)
+Console.WriteLine();                                                 //Instruccion para dejar un espacio en blanco en la consola
+
+Console.Write("Ingrese la primera calificación: ");
+double calificacion1 = Convert.ToDouble(Console.ReadLine());         //Declaramos la variable 1
+
+Console.Write("Ingrese la segunda calificación: ");
+double calificacion2 = Convert.ToDouble(Console.ReadLine());         //Declaramos la variable 2
+
+Console.Write("Ingrese la tercera calificación: ");
+double calificacion3 = Convert.ToDouble(Console.ReadLine());         //Declaramos la variable 3 
+
+double promedio = (calificacion1 + calificacion2 + calificacion3) / 3.0;
+if (promedio >= 70)
+{
+    Console.WriteLine();
+    Console.WriteLine("felicidades, el alumno aprueba.");
+}
+else
+{
+    Console.WriteLine();
+    Console.WriteLine("que pena, el alumno no aprueba.");
+}
+Console.WriteLine($"El promedio del alumno es: {promedio:F2}"); //$ es para conectar diferentes caracteres y F2 parala cantidad de decimales
