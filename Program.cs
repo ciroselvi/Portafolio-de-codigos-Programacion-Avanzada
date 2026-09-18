@@ -1,0 +1,20 @@
+﻿Console.WriteLine("Ejercicio 1 - Problemario");                                    //Nombre del ejercicio
+Console.WriteLine("Diseñe un programa que solicite al usuario el voltaje y la corriente consumida por un motor de corriente directa");    //Nombre del ejercicio (Calculo de potencia electrica de un motor dc)
+Console.WriteLine();                                                 //Instruccion para dejar un espacio en blanco en la consola
+
+Console.Write("Ingrese el voltaje consumido: ");
+double vc = Convert.ToDouble(Console.ReadLine());         //Declaramos la variable 1 la cual es el voltaje consumido por el motor dc
+
+Console.Write("Ingrese la corriente consumida: ");
+double ic = Convert.ToDouble(Console.ReadLine());         //Declaramos la variable 2 la cual es la corriente consumida por el motor dc
+
+double p = (vc * ic); //Calculamos la potencia electrica del motor dc
+
+if (p <= 120)  //Condicion para determinar si el consumo del motor es normal o elevado
+{
+    Console.WriteLine("El Consumo del motor es Normal."); //mensaje ecrito en pantalla si el consumo del motor es normal
+}
+else if (p >= 120)
+{
+    Console.WriteLine("El Consumo del motor es Elevado."); //mensaje ecrito en pantalla si el consumo del motor es elevado
+}
