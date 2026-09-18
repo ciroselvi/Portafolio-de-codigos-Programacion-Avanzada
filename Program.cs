@@ -1,0 +1,24 @@
+﻿Console.WriteLine("EJERCICIO 3 - PROBLEMARIO");
+Console.WriteLine("Ingrese el valor inicial de voltaje de la bateria de 12.6 V:");
+Console.WriteLine(); //dejar espacio en blanco en la consola
+
+Console.WriteLine("ingrese el valor inicial de la bateria: ");        //indica el valor inicial de la bateria
+double voltajeInicial = Convert.ToDouble(Console.ReadLine());        //indica el numero decimal
+Console.WriteLine("ingrese el valor de incremento de voltaje en cada ciclo: ");        //indica el valor del ciclo
+double incrementoVoltaje = Convert.ToDouble(Console.ReadLine());
+
+if (incrementoVoltaje <= 0)
+{
+    Console.WriteLine("Error: el incremento debe ser mayor que cero.");   //mensaje de error si el incremento es menor o igual a cero
+}
+else
+{
+    int ciclo = 1;
+    while (voltajeInicial < 12.6)
+    {
+        voltajeInicial += incrementoVoltaje;
+        Console.WriteLine($"Ciclo {ciclo}: Voltaje actual = {voltajeInicial:F2} V");     //mensaje de ciclo y voltaje actual
+        ciclo++;
+    }
+    Console.WriteLine("La batería ha alcanzado su carga máxima de 12.6 V.");     //mensaje de que la bateria ha alcanzado su carga maxima
+}
