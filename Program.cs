@@ -1,0 +1,74 @@
+﻿Console.WriteLine("EJERCICIO 5 DE PROBLEMARIO"); //nombre del ejercicio
+Console.WriteLine("Diseñe un programa que permita analizar la vibración de varios motores: "); //descripción del ejercicio
+
+Console.WriteLine();
+
+// Variables para almacenar los resultados generales
+int totalMotores = 0;
+int motoresNormales = 0;
+int motoresMantenimiento = 0;
+
+// Variable que controla la repeticion del programa
+string continuar = "S";
+
+// ---------------------------------------------------------
+// CICLO WHILE: permite analizar varios motores
+// ---------------------------------------------------------
+while (continuar == "S")
+{
+    Console.Write("Ingrese el nombre o identificador del motor: ");
+    string nombreMotor = Console.ReadLine();
+
+    double suma = 0;
+
+    // -----------------------------------------------------
+    // CICLO FOR: solicita exactamente cuatro mediciones
+    // -----------------------------------------------------
+    for (int contador = 1; contador <= 4; contador++)
+    {
+        Console.Write("Ingrese la medicion " + contador + " (mm/s): ");
+        double medicion = Convert.ToDouble(Console.ReadLine());
+
+        // Acumular cada medicion
+        suma = suma + medicion;
+    }
+
+    // Calcular el promedio de las cuatro mediciones
+    double promedio = suma / 4;
+
+    Console.WriteLine();
+    Console.WriteLine("Motor: " + nombreMotor);
+    Console.WriteLine("Promedio de vibracion: " + promedio.ToString("F2") + " mm/s");
+
+
+    // CLASIFICACION DEL ESTADO DEL MOTOR
+    if (promedio <= 4.5)
+    {
+        Console.WriteLine("Estado: FUNCIONAMIENTO NORMAL DEL MOTOR");
+
+        // Aumentar contador de motores normales
+        motoresNormales++;
+    }
+    else
+    {
+        Console.WriteLine("Estado: EL MOTOR REQUIERE MANTENIMIENTO");
+
+        // Aumentar contador de motores que requieren mantenimiento
+        motoresMantenimiento++;
+    }
+
+    // Aumentar el total de motores evaluados
+    totalMotores++;
+
+    Console.WriteLine();
+    Console.Write("¿Desea analizar otro motor? (S/N): ");
+    continuar = Console.ReadLine().ToUpper();
+
+    Console.WriteLine();
+}
+
+// RESULTADOS FINALES
+
+Console.WriteLine("Total de motores evaluados: " + totalMotores);
+Console.WriteLine("Motores con funcionamiento normal: " + motoresNormales);
+Console.WriteLine("Motores que requieren mantenimiento: " + motoresMantenimiento);
