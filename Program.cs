@@ -1,0 +1,22 @@
+﻿Console.WriteLine("Ejercicio 2 - problemario");                                    //Nombre del ejercicio 
+Console.WriteLine("Diseñe un programa en el que se escriba una sola vez las instrucciones para solicitar las diez mediciones, sumarlas y calcular la temperatura promedio.");    //Nombre del ejercicio 
+Console.WriteLine();                                                 //Instruccion para dejar un espacio en blanco en la consola
+
+double s = 0;
+for (int n = 1; n <= 10; n++) //Ciclo for para solicitar las 10 mediciones de temperatura
+{
+    Console.Write($"Ingrese la temperatura {n}: "); //Instruccion para solicitar la temperatura
+    double t = Convert.ToDouble(Console.ReadLine()); //Instruccion para convertir la temperatura ingresada a un valor de tipo double
+    s = s + t; //Instruccion para sumar las temperaturas ingresadas
+}
+double p = (s) / 10.0; //Instruccion para calcular el promedio de las temperaturas ingresadas
+if (p <= 70.00)
+{
+    Console.WriteLine($"El promedio de las temperaturas es: {p:F2}"); //$ es para conectar diferentes caracteres y F2 parala cantidad de decimales
+    Console.WriteLine("Las temperaturas son Normales."); //Mensaje que se mostrara en la consola si el promedio es menor o igual a 70.00
+}
+else if (p >= 70.00)
+{
+    Console.WriteLine($"El promedio de las temperaturas es: {p:F2}"); //$ es para conectar diferentes caracteres y F2 parala cantidad de decimales
+    Console.WriteLine("Las temperaturas son Altas."); //Mensaje que se mostrara en la consola si el promedio es mayor o igual a 70.00
+}
