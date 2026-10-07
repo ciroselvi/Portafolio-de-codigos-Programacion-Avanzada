@@ -1,0 +1,56 @@
+﻿Console.WriteLine("Ejercicio 1 del Problemario U2");
+Console.WriteLine();
+
+// Crear un objeto de la clase Motores
+Motores motor = new Motores();
+
+// Capturar la información del objeto 
+Console.Write("Ingrese el numero de ID del motor: ");
+motor.IDmotor = Console.ReadLine() ?? "Sin numero";
+
+Console.Write("Ingrese el voltaje del motor: ");
+motor.Voltaje = Convert.ToDouble(Console.ReadLine());
+
+Console.Write("Ingrese la Corriente del motor: ");
+motor.Corriente = Convert.ToDouble(Console.ReadLine());
+
+// Mostrar resultados
+Console.WriteLine();
+Console.WriteLine($"Motor: {motor.IDmotor}");
+Console.WriteLine($"Potencia: {motor.ObtenerEstado1()}");
+
+// Definición de la clase
+class Motores
+{
+    // Propiedades
+    public string IDmotor { get; set; } = "";
+
+    public double Voltaje { get; set; }
+
+    public double Corriente { get; set; }
+
+    // Método para calcular la potencia
+    public double CalcularPotencia()
+    {
+        double potencia;
+        potencia = Voltaje * Corriente;
+        return potencia;
+    }
+
+
+    // Método para determinar el estado
+
+    public string ObtenerEstado1()
+    {
+        double potencia = CalcularPotencia();
+        if (potencia <= 120)
+        {
+            return "La potencia del motor es: " + potencia.ToString("F2") + " Kilowats (El consumo del motor es normal)";
+        }
+        else
+        {
+            return "La potencia del motor es: " + potencia.ToString("F2") + " Kilowats (El consumo del motor esta elevada)";
+        }
+
+    }
+}
