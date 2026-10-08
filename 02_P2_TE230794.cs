@@ -1,0 +1,62 @@
+﻿Console.WriteLine("Ejercicio 2 del Problemario U2");
+Console.WriteLine();
+
+// Crear un objeto de la clase Actuadores
+Actuadores Actuador = new Actuadores();
+
+// Capturar la información del objeto 
+Console.Write("Ingrese la fuerza minima del actuador: ");
+Actuador.Fmin = Console.ReadLine() ?? "Sin numero";
+
+Console.Write("Ingrese la presión del actuador: ");
+Actuador.Pkap = Convert.ToDouble(Console.ReadLine());
+
+Console.Write("Ingrese el Area efectiva del actuador: ");
+Actuador.Acm2 = Convert.ToDouble(Console.ReadLine());
+
+// Mostrar resultados
+Console.WriteLine();
+Console.WriteLine($"La fuerza mínima del actuador es: {Actuador.Fmin} N");
+Console.WriteLine($" {Actuador.ObtenerEstado1()} ");
+
+// Definición de la clase
+class Actuadores
+{
+    // Propiedades
+    public string Fmin { get; set; } = "";
+
+    public double Pkap { get; set; }
+
+    public double Acm2 { get; set; }
+
+    // Método para calcular la fuerza
+    public double Calculos()
+    {
+        double Ppa;
+        double AM2;
+
+        Ppa = Pkap * 1000;
+        AM2 = Acm2 / 10000;
+
+        double F;
+        F = Ppa * AM2;
+        return F;
+    }
+
+
+    // Método para determinar el estado
+
+    public string ObtenerEstado1()
+    {
+        double F = Calculos();
+        if (F >= Convert.ToDouble(Fmin))
+        {
+            return "La fuerza del actuador es: " + F.ToString("F2") + " N (La fuerza entregada por el actuador es la minima requerida)";
+        }
+        else
+        {
+            return "La fuerza del actuador es: " + F.ToString("F2") + " N (La fuerza entregada por el actuador es menor a la requerida)";
+        }
+
+    }
+}
