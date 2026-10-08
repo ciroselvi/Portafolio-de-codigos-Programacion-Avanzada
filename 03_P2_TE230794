@@ -1,0 +1,38 @@
+﻿using System;
+
+Console.WriteLine("Ejercicio 3 del Problemario U2");
+Console.WriteLine();
+
+MotorTemperatura Motor = new MotorTemperatura();
+double suma = 0;
+
+for (int n = 1; n <= 5; n++)
+{
+    Console.Write($"Ingrese la lectura de temperatura {n} (°C): ");
+    double temp = Convert.ToDouble(Console.ReadLine());
+    suma = suma + temp;
+}
+
+Motor.Promedio = suma / 5.0;
+
+Console.WriteLine();
+Console.WriteLine($"Temperatura promedio calculada: {Motor.Promedio:F2} °C");
+Console.WriteLine($"Estado del motor: {Motor.ObtenerEstado()}");
+
+// La clase auxiliar sí debe ir aparte
+class MotorTemperatura
+{
+    public double Promedio { get; set; }
+
+    public string ObtenerEstado()
+    {
+        if (Promedio <= 70.0)
+        {
+            return "NORMAL";
+        }
+        else
+        {
+            return "ALERTA DE TEMPERATURA";
+        }
+    }
+}
